@@ -9,8 +9,9 @@
     <title>OX Quiz</title>
 </head>
 <body>
-<h1><b>OX Quiz Application</b></h1><br><br>
-<h7><b>등록 폼</b></h7>
+<br><br>
+<h1 class="text-center"><b>OX Quiz Application</b></h1><br><br>
+<h7><b>등록 폼</b></h7><br><br>
 <form th:action="@{/quiz/insert}" method="post" th:object="${quizDto}">
     <div>
         <label for="question" class="col-sm-3 col-form-label">퀴즈 내용 :</label>

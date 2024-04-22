@@ -12,7 +12,7 @@
 <br><br>
 <h1 class="text-center"><b>등록된 퀴즈 목록</a></b></h1>
 <br><br>
-<table class="table table-bordered" border="3" align="center">
+<table class="table table-bordered text-center" border="2" align="center">
     <tr>
         <th>ID</th>
         <th>내용</th>
@@ -28,14 +28,16 @@
         <td th:text="*{writer}"></td>
         <td>
             <form th:action="@{/quiz/{updateId}(updateId=*{id})}" method="get">
+                <button type="submit" class="btn btn-light btn sm">수정</button>
                 <input type="hidden" name="updateId" th:value="*{id}">
-                <input type="submit" value="수정">
+<!--                <input type="submit" value="수정">-->
             </form>
         </td>
         <td>
             <form th:action="@{/quiz/delete/{deleteId}(deleteId=*{id})}" method="post">
                 <input type="hidden" name="deleteId" th:value="*{id}">
-                <input type="submit" value="삭제">
+                <button type="submit" class="btn btn-light btn sm">삭제</button>
+<!--                <input type="submit" value="삭제">-->
             </form>
         </td>
     </tr>
