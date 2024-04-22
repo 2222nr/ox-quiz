@@ -9,15 +9,22 @@
     <title>OX Quiz</title>
 </head>
 <body>
-<h1><b>OX Quiz Application</b></h1><br><br>
-<h7><b>수정 폼</b></h7>
+<br><br>
+<h1 class="text-center"><b>OX Quiz Application</b></h1><br><br>
+<h7><b>수정 폼</b></h7><br>
 <form th:action="@{/quiz/update}" method="post" th:object="${quizDto}">
     <div>
         <label for="question" class="col-sm-3 col-form-label">퀴즈 내용 :</label>
-        <div>
-            <input type="text" id="question" th:field="*{question}">
-        </div>
+        <textarea class="form-control" rows="3" id="question" th:field="*{question}"></textarea>
+        <span th:errors="*{question}"></span>
     </div>
+<!--    <div>-->
+<!--        <label for="question" class="col-sm-3 col-form-label">퀴즈 내용 :</label>-->
+<!--        <div>-->
+<!--            <input type="text" id="question" th:field="*{question}">-->
+<!--            <span th:errors="*{question}"></span>-->
+<!--        </div>-->
+<!--    </div>-->
     <div>
         <div>퀴즈 정답 :</div><br>
         <div class="form-check">
@@ -35,15 +42,16 @@
     <div>
         <label for="writer" class="col-sm-3 col-form-label">작성자 :</label>
         <div>
-            <input type="text" id="writer" th:field="*{writer}">
+            <input type="text" class="form-control" id="writer" th:field="*{writer}">
         </div>
     </div>
     <br>
     <input type="hidden" th:field="*{id}">
-    <input type="submit" value="등록">
+    <button type="submit" class="btn btn-primary">등록</button>
+    <a class="btn btn-secondary" href="http://localhost:8080/quiz" role="button">취소</a>
 </form>
 <br>
-<a th:href="@{/quiz}">메인으로 돌아가기</a>
+<!--<a th:href="@{/quiz}">메인으로 돌아가기</a>-->
 
 </body>
 </html>

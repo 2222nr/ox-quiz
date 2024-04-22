@@ -2,8 +2,10 @@ package com.example.oxquiz.controller;
 
 import com.example.oxquiz.dto.QuizDto;
 import com.example.oxquiz.service.QuizService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,7 +32,11 @@ public class QuizController {
     }
 
     @PostMapping("/quiz/insert")
-    public String insertQuiz(@ModelAttribute("quizDto") QuizDto quizDto){
+    public String insertQuiz(@Valid @ModelAttribute("quizDto") QuizDto quizDto,
+                             BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            return "/quiz/insert";
+        }
         quizService.insertQuiz(quizDto);
         return "redirect:/quiz";
     }
@@ -43,7 +49,11 @@ public class QuizController {
     }
 
     @PostMapping("/quiz/update")
-    public String updateQuiz(@ModelAttribute("quizDto") QuizDto quizDto){
+    public String updateQuiz(@Valid @ModelAttribute("quizDto") QuizDto quizDto,
+                             BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            return "/quiz/update";
+        }
         quizService.updateQuiz(quizDto);
         return "redirect:/quiz";
     }

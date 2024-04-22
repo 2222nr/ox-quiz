@@ -1,6 +1,7 @@
 package com.example.oxquiz.dto;
 
 import com.example.oxquiz.entity.Quiz;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class QuizDto {
     private Long id;
+
+    @NotBlank(message = "공백일 수 없습니다.")
     private String question;
     private String answer;
     private String writer;

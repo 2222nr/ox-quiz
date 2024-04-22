@@ -16,6 +16,7 @@
     <div>
         <label for="question" class="col-sm-3 col-form-label">퀴즈 내용 :</label>
         <textarea class="form-control" rows="3" id="question" th:field="*{question}"></textarea>
+        <span th:errors="*{question}"></span>
     </div>
     <div>퀴즈 정답 :</div><br>
     <div class="form-check">
