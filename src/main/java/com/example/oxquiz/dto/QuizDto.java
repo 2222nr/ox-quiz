@@ -12,8 +12,10 @@ import lombok.NoArgsConstructor;
 public class QuizDto {
     private Long id;
 
-    @NotBlank(message = "공백일 수 없습니다.")
+    @NotBlank(message = "내용은 공백일 수 없습니다.")
     private String question;
+
+    @NotBlank(message = "정답을 선택하세요.")
     private String answer;
     private String writer;
 

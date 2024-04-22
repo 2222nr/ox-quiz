@@ -16,7 +16,7 @@
     <div>
         <label for="question" class="col-sm-3 col-form-label">퀴즈 내용 :</label>
         <textarea class="form-control" rows="3" id="question" th:field="*{question}"></textarea>
-        <span th:errors="*{question}"></span>
+        <span class="text-danger" th:errors="*{question}"></span>
     </div>
     <div>퀴즈 정답 :</div><br>
     <div class="form-check">
@@ -29,6 +29,7 @@
         <label th:for="${#ids.prev('answer')}" th:text="X"
                class="form-check-label"></label>
     </div>
+    <span class="text-danger" th:errors="*{answer}"></span>
     <div>
         <label for="writer" class="col-sm-3 col-form-label">작성자 :</label>
         <div>
